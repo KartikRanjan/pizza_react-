@@ -17,7 +17,7 @@ const Cart = () => {
     }
     console.log("Cart", Object.keys(cart.items));
 
-    fetch("https://ecom-rest-apis.herokuapp.com/api/products/cart-items", {
+    fetch("https://star-spark-pasta.glitch.me//api/products/cart-items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,23 +76,32 @@ const Cart = () => {
   };
 
   return products.length ? (
-    <div className="container mx-auto l lg:w-1/2 w-full pb-24">
-      <h1 className="my-12 font-bold">Cart items</h1>
+    <div className="mx-auto w-11/12 md:w-3/4 lg:w-2/3 min-h-screen">
+      <h1 className="my-12 text-sm text-center font-bold md:text-lg border-b">
+        Cart items
+      </h1>
+
       <ul>
         {products.map((product) => {
           return (
             <li key={product._id} className="mb-12">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <img className="h-16" src={product.image} alt="pizza" />
-                  <span className="font-bold ml-4 ">{product.name}</span>
+                  <img
+                    className="h-10 sm:h-16"
+                    src={product.image}
+                    alt="pizza"
+                  />
+                  <span className="text-xs md:text-sm font-semibold ml-4 w-16 md:w-36">
+                    {product.name}
+                  </span>
                 </div>
                 <div className="flex">
                   <button
                     onClick={() => {
                       decrement(product._id);
                     }}
-                    className="bg-yellow-500 px-4 py-2 rounded-full leading-none"
+                    className="bg-yellow-500 text-xs md:text-sm font-semibold px-3.5 py-1.5 md:px-5 sm:py-1.5 rounded-full leading-none"
                   >
                     -
                   </button>
@@ -101,17 +110,19 @@ const Cart = () => {
                     onClick={() => {
                       increment(product._id);
                     }}
-                    className="bg-yellow-500 px-4 py-2 rounded-full leading-none"
+                    className="bg-yellow-500 text-xs md:text-sm font-semibold px-3.5 py-1.5 md:px-5 sm:py-1.5 rounded-full leading-none"
                   >
                     +
                   </button>
                 </div>
-                <span>{getSum(product._id, product.price)}</span>
+                <span className="text-xs md:text-sm font-semibold">
+                  ₹ {getSum(product._id, product.price)}
+                </span>
                 <button
                   onClick={() => {
                     handleDelete(product._id);
                   }}
-                  className="bg-red-500 px-4 py-2 rounded-full"
+                  className="bg-red-500 text-xs md:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full"
                 >
                   Delete
                 </button>
@@ -120,14 +131,15 @@ const Cart = () => {
           );
         })}
       </ul>
+
       <hr className="my-6" />
-      <div className="text-right">
+      <div className="text-right text-sm md:text-base ">
         <b>Grand Total:</b> ₹ {total}
       </div>
       <div className="text-right mt-6">
         <button
           onClick={handleOrderNow}
-          className="bg-yellow-500 px-6 py-2 rounded-full leading-none"
+          className="bg-yellow-500 text-xs md:text-sm font-semibold px-4 py-2 sm:px-6 sm:py-2 rounded-full leading-none"
         >
           Order Now
         </button>
@@ -135,7 +147,7 @@ const Cart = () => {
     </div>
   ) : (
     <img
-      className="mx-auto w-1/2 mt-12 "
+      className="mx-auto mt-12 px-8 min-h-full"
       src="/images/empty-cart.png"
       alt="empty_cart"
     />
