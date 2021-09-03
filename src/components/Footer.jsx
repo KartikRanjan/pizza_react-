@@ -11,10 +11,10 @@ const Footer = () => {
             </Link>
           </div>
           <div>
-            <p>
+            <address>
               Pizza Shop, R39th Street, Jayangar 8th Block, Bangalore, Karnataka
               India, 560075
-            </p>
+            </address>
           </div>
         </div>
 

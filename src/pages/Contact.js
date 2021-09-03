@@ -8,12 +8,14 @@ const About = () => {
       </h1>
       <div>
         <img
+          height="200"
+          width="200"
           className="mx-auto rounded-full mt-10"
-          src="./images/photo_aai.jpg"
+          src="./images/web_prof.png"
           alt="profile_pic"
         ></img>
         <h1 className="text-4xl md:text-5xl text-center font-bold font-serif pt-6">
-          <em>KartiK Kr RanjaN</em>
+          <em>KartiK Kr Ranjan</em>
         </h1>
         <p className="text-xl font-semibold text-center font-serif py-2">
           a <u>MERN</u> Stack Developer
@@ -38,10 +40,10 @@ const About = () => {
           </a>
         </div>
 
-        <p className="mx-auto text-lg text-center w-4/5 sm:w-1/3 font-semibold font-sans">
+        <address className="mx-auto text-lg text-center w-4/5 sm:w-1/3  font-sans">
           Mantri Serenity, Doddakallasandra, Kanakpura Road, South Bangalore,
           Karnataka 560062
-        </p>
+        </address>
       </div>
     </div>
   );
